@@ -48,6 +48,14 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  /* Still every decorative transition/animation. The canvas keeps a
+     single composed (non-animated) frame via JS; nothing else moves. */
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 a { color: inherit; text-decoration: none; }
@@ -325,7 +333,9 @@ a.work-card:hover {
   letter-spacing: -0.015em;
   margin: 0;
 }
-.about-dim { color: var(--muted-2); }
+/* Body-weight sentence at ~23px/500 — not WCAG-"large", so it must
+   clear 4.5:1. --muted-2 (3.36:1 on ink) fails; --muted is 6.29:1. */
+.about-dim { color: var(--muted); }
 
 /* ── Contact ──────────────────────────────────────────────── */
 .section-contact { padding-bottom: clamp(72px, 12vh, 130px); }
@@ -359,29 +369,66 @@ a.work-card:hover {
   gap: 10px 22px;
   font-family: var(--ff-mono);
   font-size: 12.5px;
-  color: var(--muted-2);
+  /* 12.5px footer text is small body copy — needs 4.5:1. --muted-2
+     (3.36:1) fails at this size; --muted (6.29:1) passes. */
+  color: var(--muted);
   letter-spacing: 0.02em;
 }
-.foot-brand { color: var(--muted); }
-.foot-link { margin-left: auto; color: var(--muted); transition: color 0.2s ease; }
+.foot-link { margin-left: auto; transition: color 0.2s ease; }
 .foot-link:hover { color: var(--gold); }
 
-/* ── Reveal animation ─────────────────────────────────────── */
-.reveal {
+/* ── Reveal animation ─────────────────────────────────────────
+   Content is visible BY DEFAULT. The hidden start-state is applied
+   ONLY when the root carries .js-reveal — a flag JS sets exclusively
+   when it has confirmed it can (and will) animate the element in
+   (IntersectionObserver present, motion allowed). So no-JS, hidden
+   tabs, headless renderers, reduced-motion, and any never-fired
+   state all show content. The reveal only ENHANCES; it is never the
+   sole thing making content visible. */
+.js-reveal .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
-.reveal.is-in { opacity: 1; transform: none; }
-.pillar:nth-child(2).reveal { transition-delay: 0.08s; }
-.pillar:nth-child(3).reveal { transition-delay: 0.16s; }
-.work-card:nth-child(2).reveal { transition-delay: 0.08s; }
+.js-reveal .reveal.is-in { opacity: 1; transform: none; }
+.js-reveal .pillar:nth-child(2).reveal { transition-delay: 0.08s; }
+.js-reveal .pillar:nth-child(3).reveal { transition-delay: 0.16s; }
+.js-reveal .work-card:nth-child(2).reveal { transition-delay: 0.08s; }
 
-/* ── Focus visibility ─────────────────────────────────────── */
-a:focus-visible, .btn:focus-visible {
+/* Belt-and-suspenders: if a user prefers reduced motion, the hidden
+   start-state must never linger even if .js-reveal were ever set. */
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── Focus visibility ─────────────────────────────────────────
+   Every interactive element on the page is an <a> or .btn. A gold
+   ring works on every surface EXCEPT the gold-filled primary button
+   (gold-on-gold = 1:1), so that one gets an inset ink ring + offset
+   gold ring for a guaranteed two-tone, high-contrast indicator. */
+a:focus-visible,
+.btn:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
   border-radius: 2px;
+}
+/* Sticky-header link: tighter offset so the ring isn't clipped by the
+   header's bottom border / blur edge. */
+.head-link:focus-visible,
+.wordmark:focus-visible {
+  outline-offset: 2px;
+}
+/* Gold-filled CTA: gold-on-gold has no contrast — use an ink inset
+   ring plus the gold offset ring (9.56:1 ink-on-gold, 10.3:1 gold-on-ink). */
+.btn-primary:focus-visible {
+  outline-color: var(--gold-hi);
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+/* Always show a focus ring for keyboard users in forced-colors mode. */
+@media (forced-colors: active) {
+  a:focus-visible,
+  .btn:focus-visible { outline: 2px solid Highlight; }
 }
 
 /* ── Responsive ───────────────────────────────────────────── */

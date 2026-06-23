@@ -242,20 +242,49 @@
       init();
     })();
 
-    /* Scroll-reveal — subtle, and skipped entirely under reduced motion. */
+    /* Scroll-reveal — an ENHANCEMENT only. Content is visible by default
+       (CSS hides the start-state solely under html.js-reveal, which we set
+       here only after confirming we can and will animate it in). Under
+       no-JS, reduced motion, no IntersectionObserver, a hidden tab, or a
+       headless renderer that never scrolls, content simply stays visible. */
     (function () {
       var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var items = document.querySelectorAll('[data-reveal], .pillar, .work-card, .about-lead, .contact-band');
+      if (!items.length) return;
+
+      // Bail to "fully visible" if we can't (or shouldn't) animate.
       if (reduce || !('IntersectionObserver' in window)) {
-        items.forEach(function (el) { el.classList.add('is-in'); });
+        items.forEach(function (el) { el.classList.add('reveal', 'is-in'); });
         return;
       }
+
+      // Commit to the animation: arm the hidden start-state, then reveal.
+      var root = document.documentElement;
+      root.classList.add('js-reveal');
+      items.forEach(function (el) { el.classList.add('reveal'); });
+
+      function showAll() {
+        items.forEach(function (el) { el.classList.add('is-in'); });
+      }
+
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
           if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
         });
-      }, { threshold: 0.18 });
-      items.forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
+      }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function (el) { io.observe(el); });
+
+      // Safety nets: never leave content stuck at opacity 0.
+      // 1) If the observer hasn't fired by ~1.6s (e.g. background/throttled
+      //    tab where rAF + IO are paused), reveal everything.
+      var fallback = setTimeout(showAll, 1600);
+      // 2) When a backgrounded tab becomes visible, ensure content is shown.
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) { clearTimeout(fallback); showAll(); }
+      });
+      // 3) On full load, clear the timer’s race and guarantee visibility for
+      //    anything already in view.
+      window.addEventListener('load', function () { setTimeout(showAll, 600); });
     })();
   </script>
 </body>
