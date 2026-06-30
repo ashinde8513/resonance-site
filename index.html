@@ -12,6 +12,14 @@
   <meta property="og:description" content="A Colorado studio building and operating software and live experiences that resonate." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://resonance-ventures.com" />
+  <meta property="og:image" content="https://resonance-ventures.com/og-image.svg" />
+  <meta property="og:image:alt" content="Resonance Ventures — A Colorado studio building software and live experiences" />
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Resonance Ventures" />
+  <meta name="twitter:description" content="A Colorado studio building and operating software and live experiences that resonate." />
+  <meta name="twitter:image" content="https://resonance-ventures.com/og-image.svg" />
+  <link rel="canonical" href="https://resonance-ventures.com" />
 
   <!-- Resonance-curve favicon (inline, no extra request) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2308090C'/%3E%3Cpath d='M3 16 C7 16 7 8 11 8 C15 8 15 24 19 24 C23 24 23 12 26 12 C28 12 29 16 29 16' fill='none' stroke='%23E7B252' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E" />
@@ -22,6 +30,8 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <a href="#top" class="skip-link">Skip to content</a>
 
   <header class="site-head">
     <div class="wrap head-inner">
@@ -34,7 +44,9 @@
         </span>
         <span class="wordmark-text">Resonance Ventures</span>
       </a>
-      <a class="head-link" href="mailto:arya@resonance-ventures.com">arya@resonance-ventures.com</a>
+      <nav aria-label="Site">
+        <a class="head-link" href="mailto:arya@resonance-ventures.com">arya@resonance-ventures.com</a>
+      </nav>
     </div>
   </header>
 
@@ -43,7 +55,7 @@
     <!-- HERO -->
     <section class="hero">
       <div class="wrap">
-        <p class="eyebrow"><span class="eyebrow-dot"></span>Resonance Ventures LLC · Colorado · Est. 2026</p>
+        <p class="eyebrow"><span class="glow-dot" aria-hidden="true"></span>Resonance Ventures LLC · Colorado · Est. 2026</p>
         <h1 class="hero-title">
           We build and operate<br />
           products and live<br />
@@ -65,7 +77,7 @@
     <!-- WHAT WE DO -->
     <section class="section" id="studio">
       <div class="wrap">
-        <p class="eyebrow"><span class="eyebrow-dot"></span>What the studio does</p>
+        <p class="eyebrow"><span class="glow-dot" aria-hidden="true"></span>What the studio does</p>
         <h2 class="section-title">Three frequencies, one studio.</h2>
 
         <div class="pillars">
@@ -93,24 +105,26 @@
     <!-- WORK -->
     <section class="section section-work" id="work">
       <div class="wrap">
-        <p class="eyebrow"><span class="eyebrow-dot"></span>The work</p>
+        <p class="eyebrow"><span class="glow-dot" aria-hidden="true"></span>The work</p>
         <h2 class="section-title">What we're building.</h2>
 
         <div class="work-grid">
-          <a class="work-card work-card--feature" href="https://trydropapp.com" target="_blank" rel="noopener">
+          <a class="work-card work-card--feature" href="https://trydropapp.com" target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Drop — EDM event-discovery app, visit trydropapp.com (opens in new tab)">
             <div class="work-meta">
               <span class="work-kind">iOS app</span>
-              <span class="work-status status-live"><span class="status-dot"></span>Releasing soon</span>
+              <span class="work-status status-live"><span class="glow-dot status-dot" aria-hidden="true"></span>Releasing soon</span>
             </div>
             <h3 class="work-name">Drop</h3>
             <p class="work-desc">Every EDM concert, festival, and club night — discovered, tracked, and one tap from official tickets.</p>
-            <span class="work-go">Visit Drop <span aria-hidden="true">→</span></span>
+            <span class="work-go" aria-hidden="true">Visit Drop <span aria-hidden="true">→</span></span>
           </a>
 
           <div class="work-card">
             <div class="work-meta">
               <span class="work-kind">Live &amp; events</span>
-              <span class="work-status status-soon"><span class="status-dot"></span>In motion</span>
+              <span class="work-status status-soon"><span class="glow-dot status-dot" aria-hidden="true"></span>In motion</span>
             </div>
             <h3 class="work-name">Stage &amp; Sound</h3>
             <p class="work-desc">Electronic sets and event promotion — the studio's live practice, currently being built across the Front Range.</p>
@@ -123,7 +137,7 @@
     <!-- ABOUT -->
     <section class="section section-about" id="about">
       <div class="wrap about-wrap">
-        <p class="eyebrow"><span class="eyebrow-dot"></span>About</p>
+        <p class="eyebrow"><span class="glow-dot" aria-hidden="true"></span>About</p>
         <p class="about-lead">Resonance Ventures is a single-member studio based in Colorado, founded in 2026 to build software and live experiences under one roof — and to own and operate them for the long haul. <span class="about-dim">Small on purpose: a tight set of bets, chosen so each one amplifies the next.</span></p>
       </div>
     </section>
@@ -144,7 +158,8 @@
     <div class="wrap foot-inner">
       <span class="foot-brand">Resonance Ventures LLC</span>
       <span class="foot-meta">Colorado, USA · © 2026</span>
-      <a class="foot-link" href="https://trydropapp.com" target="_blank" rel="noopener">Drop ↗</a>
+      <a class="foot-link" href="https://trydropapp.com" target="_blank" rel="noopener noreferrer"
+         aria-label="Drop app (opens in new tab)">Drop ↗</a>
     </div>
   </footer>
 
