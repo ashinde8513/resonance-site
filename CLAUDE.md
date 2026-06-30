@@ -9,5 +9,10 @@ Before any UI work, read `PRODUCT.md` (strategy/voice) and `DESIGN.md` (visual t
 - **Anti-references:** generic SaaS/template, corporate navy fintech, crypto/web3/VC hype, Linktree-default blandness.
 - **Accessibility:** target WCAG 2.2 AA; render content visible by default (don't gate on scroll reveals); provide `prefers-reduced-motion` alternatives and visible `:focus-visible` states.
 
+## Default skills
+- **UI:** `impeccable`, `refactoring-ui`, `design-auditor` (a11y/rules); the standing-wave canvas motion → `gsap-scrolltrigger`.
+- **Copy:** `copywriting` + `beautiful-prose` → `humanizer` (restraint/signal register, not SaaS pitch).
+- **Visibility:** `seo-audit` + `ai-seo`.
+
 ## Testing (run before pushing)
 Playwright smoke test in `tests/`. Run `npm test` after content/UI changes — it loads the page (desktop + mobile Safari), checks the title and core copy, and fails on any JS console error. (Pattern doc: `~/TESTING.md`.)
