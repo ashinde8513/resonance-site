@@ -1,0 +1,19 @@
+# Resonance Ventures
+
+> Resonance Ventures LLC is a Colorado venture studio (est. 2026) that builds and operates
+> software and live experiences for the long term.
+
+Resonance Ventures is the parent studio for its own products, including Drop, an EDM
+event-discovery app. This site is the company's corporate homepage — not a product with
+its own pricing or docs.
+
+## Key pages
+
+- [Homepage](https://resonance-ventures.com/): studio overview, what we do, current work, contact.
+- [Drop](https://trydropapp.com): flagship product, EDM event-discovery app.
+
+## Contact
+
+- Email: arya@resonance-ventures.com
+
+<!-- ponytail: no /pricing.md — this is a corporate studio site, not a priced product. -->
