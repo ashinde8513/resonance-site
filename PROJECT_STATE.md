@@ -1,6 +1,6 @@
 # PROJECT STATE — resonance-landing (read me first)
 
-Last updated: 2026-06-25
+Last updated: 2026-07-01
 Full history (if archived): vault → AI Agents/Codebase Docs/resonance-landing/PROJECT_HISTORY.md
 
 ## SESSION LOCK
@@ -17,9 +17,15 @@ Live cross-session claims (who is working on what right now) are in the vault: `
 ### Blocked / waiting on
 - 
 ### Exact next step
-- Check BACKLOG.md or recent git log for next pending work.
+- BACKLOG.md P1: verify GitHub Pages actually serves `robots.txt`, `sitemap.xml`, `llms.txt` at the domain root post-deploy (no Jekyll stripping), then submit `sitemap.xml` to Google Search Console.
 
 ## Recent sessions (last 5 — older entries in PROJECT_HISTORY.md)
+### 2026-07-01 — Claude — Real PNG og-image, AGENTS.md closeout rule, AI-SEO rollout
+- Changed: Landing: real PNG og-image so social cards render (#3); added Command Center closeout rule to AGENTS.md (dc5da66); AI-SEO files + BACKLOG.md (#4) — llms.txt, robots.txt, sitemap.xml, Organization JSON-LD in index.html.
+- Tested: N/A (doc/config-only closeout pass)
+- Remaining: BACKLOG.md P1 verification items (sitemap live-check, Search Console submission), P2 content gaps, P3 process cleanup.
+- Next: Verify AI-SEO files serve correctly post-deploy, then work down BACKLOG.md P1.
+
 ### 2026-06-25 — Claude — Instantiate handoff-protocol files (W10 rollout)
 - Changed: Added PROJECT_STATE.md and AGENTS.md
 - Tested: N/A
