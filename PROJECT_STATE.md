@@ -1,6 +1,10 @@
 # PROJECT STATE — resonance-landing (read me first)
 
-Last updated: 2026-07-04
+> Moved 2026-07-06: `~/Developer/Resonance Ventures/resonance-landing` →
+> `~/Developer/Drop/resonance-landing` (Resonance Ventures LLC operates Drop; site exists
+> mainly for Drop's Apple/partner vetting). GitHub repo `resonance-site` unchanged.
+
+Last updated: 2026-07-06
 Full history (if archived): vault → AI Agents/Codebase Docs/resonance-landing/PROJECT_HISTORY.md
 
 ## SESSION LOCK
