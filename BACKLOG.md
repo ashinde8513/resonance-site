@@ -14,5 +14,7 @@ Prioritized. Newest/highest priority first. Update when priorities or scope chan
 - [ ] Founder/author identity beyond the contact email — no bio, no LinkedIn — consider once there's a public-facing role to promote (E-E-A-T signal).
 - [ ] og-image.svg exists alongside og-image.png — confirm which is canonical/still used; drop the unused one.
 
+> Design ideas to pull from: see `prism-tokens/DESIGN_RESOURCES.md` (refero / Aceternity / Componentry — reimplement natively, Prism-token, reduced-motion).
+
 ## P3 — Process
 - [ ] PROJECT_STATE.md "Check BACKLOG.md" pointer was broken (file didn't exist) — this file fixes it. Keep it current going forward.
