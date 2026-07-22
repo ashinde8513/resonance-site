@@ -3,8 +3,8 @@
 Prioritized. Newest/highest priority first. Update when priorities or scope change (see AGENTS.md).
 
 ## P1 — AI-SEO follow-ups
-- [ ] Verify GitHub Pages actually serves `robots.txt`, `sitemap.xml`, `llms.txt` at the domain root post-deploy (Pages serves repo root as-is, but confirm no Jekyll processing strips them — `.nojekyll` is already present).
-- [ ] Submit `sitemap.xml` to Google Search Console once verified live.
+- [x] Verify GitHub Pages serves `robots.txt`, `sitemap.xml`, and `llms.txt` at the domain root — confirmed 2026-07-22: all returned HTTP 200 from GitHub Pages and byte-matched the tracked files.
+- [ ] **Founder required:** submit `https://resonance-ventures.com/sitemap.xml` in the authenticated Google Search Console property, then record whether Google accepts it.
 - [ ] Add `sameAs` links to the Organization JSON-LD once real social/LinkedIn profiles exist for Resonance Ventures.
 - [ ] Revisit JSON-LD when Drop ships (currently "releasing soon") — consider adding a `SoftwareApplication` or `subOrganization` entry linking to trydropapp.com once it's a live product with its own listing.
 
