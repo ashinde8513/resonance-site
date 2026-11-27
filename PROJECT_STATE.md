@@ -47,6 +47,8 @@ Live cross-session claims (who is working on what right now) are in the vault: `
 
 ## Recent Sessions
 <!-- SESSIONS:newest-first -->
+### 2026-11-27 — Claude — upkeep round
+- **Changed:** favicon files + apple-touch-icon, og-image 564KB→74KB (1200x630), removed mismatched card aria-label. Live-verified; Lighthouse mobile 97–99/100/100/100, desktop 100s. Links all 200. Entity details unchanged since 2026-11-20 audit.
 ### 2026-11-20 — Claude — Drop status fix
 - **Changed:** landing said Drop 'Releasing soon / iOS app'; now 'Live', 'iOS & Android app' (PR #5, live-verified). Entity audit: no mismatches in legal name/state; DUNS/SOS intentionally not on public pages.
 - **Open:** Play developer name shows 'Resonance Ventures' (no LLC) vs App Store seller 'Resonance Ventures LLC'; Drop footers say 'by Resonance Ventures' without LLC; press kit says 'Built in Denver' vs 'Colorado'. Search Console sitemap submit still founder-only.
